@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開業継承スキーム｜一般社団法人 隆起会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --amber-50: #FAEEDA;
+    --amber-800: #854F0B;
+    --gray-50: #F7F7F5;
+    --gray-100: #EFEFEB;
+    --gray-200: #E0DED8;
+    --gray-400: #9B9990;
+    --gray-800: #2C2C2A;
+    --white: #FFFFFF;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--white);
+    border: 0.5px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .hero-kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--gray-800);
+    line-height: 1.45;
+    margin-bottom: 0.9rem;
+  }
+  .hero p {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.8;
+  }
+
+  /* Metrics */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .metric {
+    background: var(--white);
+    border: 0.5px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1rem 0.9rem;
+    text-align: center;
+  }
+  .metric-val {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--gray-800);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .metric-unit { font-size: 13px; font-weight: 400; color: var(--gray-400); }
+  .metric-label { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+  /* Cards */
+  .card {
+    background: var(--white);
+    border: 0.5px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray-800);
+    margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title i { color: var(--teal-600); font-size: 18px; }
+
+  /* Steps */
+  .step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 0.8rem 0;
+    border-bottom: 0.5px solid var(--gray-100);
+  }
+  .step:last-child { border-bottom: none; padding-bottom: 0; }
+  .step-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--teal-50);
+    color: var(--teal-600);
+    font-size: 13px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step strong { font-size: 14px; font-weight: 500; color: var(--gray-800); display: block; margin-bottom: 3px; }
+  .step p { font-size: 13px; color: var(--gray-400); line-height: 1.65; margin: 0; }
+
+  /* Clinic list */
+  .clinic-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .clinic-col-right { border-left: 0.5px solid var(--gray-100); padding-left: 1rem; }
+  .col-label { font-size: 11px; font-weight: 500; color: var(--gray-400); margin-bottom: 0.4rem; }
+  .clinic-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.45rem 0;
+    border-bottom: 0.5px solid var(--gray-100);
+    font-size: 13px;
+  }
+  .clinic-row:last-child { border-bottom: none; }
+  .clinic-name { color: var(--gray-800); }
+  .clinic-date { color: var(--gray-400); font-size: 12px; white-space: nowrap; margin-left: 6px; }
+  .clinic-row.done { opacity: 0.5; }
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    padding: 1px 7px; border-radius: 99px; margin-left: 5px;
+    vertical-align: middle;
+  }
+  .badge-done { background: var(--teal-50); color: var(--teal-600); }
+  .badge-upcoming { background: var(--amber-50); color: var(--amber-800); }
+  .clinic-note {
+    font-size: 12px; color: var(--gray-400);
+    margin-top: 0.75rem; padding-top: 0.75rem;
+    border-top: 0.5px solid var(--gray-100);
+  }
+
+  /* FAQ */
+  .faq-item { border-bottom: 0.5px solid var(--gray-100); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    width: 100%; background: none; border: none;
+    text-align: left; padding: 0.9rem 0;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+    font-size: 14px; font-weight: 500; color: var(--gray-800);
+    gap: 12px; font-family: inherit;
+  }
+  .faq-q .faq-icon { flex-shrink: 0; transition: transform 0.22s; color: var(--gray-400); font-size: 18px; }
+  .faq-a { font-size: 13px; color: var(--gray-400); line-height: 1.75; padding-bottom: 0.9rem; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* Form */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 12px; font-weight: 500; color: var(--gray-400); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px; font-family: inherit;
+    padding: 9px 11px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--gray-200);
+    background: var(--white);
+    color: var(--gray-800);
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--teal-600); }
+  .form-group textarea { resize: vertical; min-height: 96px; }
+  .form-group select {
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239B9990' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    padding-right: 30px;
+  }
+  .submit-btn {
+    width: 100%; padding: 11px;
+    border-radius: var(--radius-md);
+    background: var(--teal-600);
+    color: var(--teal-50);
+    font-size: 14px; font-weight: 500;
+    font-family: inherit;
+    border: none; cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.15s;
+  }
+  .submit-btn:hover { background: var(--teal-800); }
+  .form-note { font-size: 12px; color: var(--gray-400); text-align: center; margin-top: 0.6rem; }
+  .success-msg {
+    display: none;
+    background: var(--teal-50);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    font-size: 14px;
+    color: var(--teal-600);
+    margin-top: 0.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 540px) {
+    .metrics { grid-template-columns: 1fr; }
+    .clinic-cols { grid-template-columns: 1fr; }
+    .clinic-col-right { border-left: none; padding-left: 0; margin-top: 1rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <p class="hero-kicker">一般社団法人 隆起会</p>
+    <h1>整形外科医のための<br>開業継承スキーム</h1>
+    <p>初期リスクを抑えながら、段階的にご自身のクリニックを持てる仕組みをご提供しています。<br>2010年の第1院開業から、13院の開業が決定しています。</p>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-val">2,400<span class="metric-unit">万円</span></div>
+      <div class="metric-label">管理医師の年収</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">5,000<span class="metric-unit">万円</span></div>
+      <div class="metric-label">5年後の譲渡金額</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">13<span class="metric-unit">院</span></div>
+      <div class="metric-label">開業決定数</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="ti ti-route" aria-hidden="true"></i>スキームの流れ</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div><strong>物件の選定</strong><p>先生のご自宅から30〜40分圏内を基準に、隆起会が適切な物件を選定します。</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div><strong>クリニック開業・管理医師として勤務</strong><p>開業後は管理医師として年収2,400万円で勤務していただきます。</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div><strong>開業5年後に譲渡</strong><p>開業から5年後に5,000万円でクリニックを先生へ譲渡します。経営が軌道に乗った状態でのオーナーシップ取得が可能です。</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="ti ti-building-hospital" aria-hidden="true"></i>開業・継承の実績</p>
+    <div class="clinic-cols">
+      <div>
+        <p class="col-label">開業済み・運営中</p>
+        <div class="clinic-row"><span class="clinic-name">おおたき整形外科</span><span class="clinic-date">2010.06</span></div>
+        <div class="clinic-row done"><span class="clinic-name">りゅうゆう会整形外科<span class="badge badge-done">継承済</span></span><span class="clinic-date">2013.05</span></div>
+        <div class="clinic-row done"><span class="clinic-name">整形外科りゅうゆう会<span class="badge badge-done">継承済</span></span><span class="clinic-date">2016.06</span></div>
+        <div class="clinic-row done"><span class="clinic-name">整形外科うるしたに<span class="badge badge-done">継承済</span></span><span class="clinic-date">2018.06</span></div>
+        <div class="clinic-row done"><span class="clinic-name">整形外科おがた<span class="badge badge-done">継承済</span></span><span class="clinic-date">2019.04</span></div>
+        <div class="clinic-row done"><span class="clinic-name">整形外科ますはら<span class="badge badge-done">継承済</span></span><span class="clinic-date">2019.06</span></div>
+        <div class="clinic-row done"><span class="clinic-name">整形外科なかむら<span class="badge badge-done">継承済</span></span><span class="clinic-date">2020.05</span></div>
+      </div>
+      <div class="clinic-col-right">
+        <p class="col-label">継承済み（7院）／開業決定</p>
+        <div class="clinic-row done"><span class="clinic-name">整形外科ふくやま<span class="badge badge-done">継承済</span></span><span class="clinic-date">2021.05</span></div>
+        <div class="clinic-row"><span class="clinic-name">整形外科おおつか</span><span class="clinic-date">2024.05</span></div>
+        <div class="clinic-row"><span class="clinic-name">つじもと整形外科</span><span class="clinic-date">2025.05</span></div>
+        <div class="clinic-row"><span class="clinic-name">もりもと整形外科</span><span class="clinic-date">2025.05</span></div>
+        <div class="clinic-row"><span class="clinic-name">寝屋川いずもと整形外科</span><span class="clinic-date">2026.05</span></div>
+        <div class="clinic-row"><span class="clinic-name">生野区（院名調整中）<span class="badge badge-upcoming">開業決定</span></span><span class="clinic-date">2027.05</span></div>
+      </div>
+    </div>
+    <p class="clinic-note">継承済み7院はすべてスキーム通り5年後に先生へ譲渡しています。</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="ti ti-help-circle" aria-hidden="true"></i>よくある質問</p>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">開業にあたって自己資金は必要ですか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">開業資金は隆起会が負担します。先生ご自身の自己資金は原則不要です。まずはご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">物件のエリアは希望できますか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">先生のご自宅から30〜40分圏内を基本としています。エリアのご要望はヒアリング時にお伺いし、可能な限り考慮して選定します。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">管理医師として勤務中の裁量はどの程度ありますか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">診療方針や診療科目の設定など、現場の医療判断は先生にお任せしています。経営・運営面については隆起会がサポートします。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">5年後の譲渡は必ず行われますか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">これまでの7院すべてにおいて、スキーム通り5年後に譲渡を完了しています。譲渡条件は契約書に明記されますのでご安心ください。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">整形外科以外の科目でも対応できますか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">現在は整形外科専門のスキームとなっております。詳細はお問い合わせにてご確認ください。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">相談から開業までどのくらいの期間がかかりますか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
+      <div class="faq-a">物件の状況にもよりますが、ご相談から開業まで概ね6〜12か月程度を目安にお考えください。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="ti ti-mail" aria-hidden="true"></i>お問い合わせ</p>
+    <div id="contact-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="f-name">お名前</label>
+          <input type="text" id="f-name" placeholder="山田 太郎">
+        </div>
+        <div class="form-group">
+          <label for="f-kana">ふりがな</label>
+          <input type="text" id="f-kana" placeholder="やまだ たろう">
+        </div>
+        <div class="form-group">
+          <label for="f-email">メールアドレス</label>
+          <input type="email" id="f-email" placeholder="example@email.com">
+        </div>
+        <div class="form-group">
+          <label for="f-tel">電話番号</label>
+          <input type="tel" id="f-tel" placeholder="090-0000-0000">
+        </div>
+        <div class="form-group full">
+          <label for="f-pref">ご希望エリア（お住まいの都道府県）</label>
+          <select id="f-pref">
+            <option value="">選択してください</option>
+            <option>大阪府</option>
+            <option>京都府</option>
+            <option>兵庫県</option>
+            <option>奈良県</option>
+            <option>滋賀県</option>
+            <option>和歌山県</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="f-msg">ご質問・ご相談内容</label>
+          <textarea id="f-msg" placeholder="ご自由にご記入ください"></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="submitForm()">送信する</button>
+      <p class="form-note">いただいた情報は開業相談以外の目的には使用しません。</p>
+      <div class="success-msg" id="success-msg">
+        <i class="ti ti-circle-check" style="font-size:20px;vertical-align:-3px;margin-right:6px" aria-hidden="true"></i>
+        お問い合わせを受け付けました。担当者よりご連絡いたします。
+      </div>
+    </div>
+  </div>
+
+  <p class="footer">© 一般社団法人 隆起会</p>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  if (!name || !email) { alert('お名前とメールアドレスは必須です。'); return; }
+  document.getElementById('contact-form').querySelector('.submit-btn').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
+</body>
+</html>
