@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,28 +7,29 @@
 <title>開業継承スキーム｜一般社団法人 隆起会</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --teal-50: #E1F5EE;
-    --teal-100: #9FE1CB;
-    --teal-600: #0F6E56;
-    --teal-800: #085041;
-    --teal-900: #04342C;
+    --navy: #1A3A6B;
+    --navy-dark: #122a52;
+    --navy-light: #E8EDF5;
+    --red: #C0392B;
+    --red-light: #FAECEB;
     --amber-50: #FAEEDA;
     --amber-800: #854F0B;
-    --gray-50: #F7F7F5;
-    --gray-100: #EFEFEB;
-    --gray-200: #E0DED8;
-    --gray-400: #9B9990;
-    --gray-800: #2C2C2A;
+    --gray-50: #F4F6F8;
+    --gray-100: #E8ECF0;
+    --gray-200: #D0D7E0;
+    --gray-400: #8A95A3;
+    --gray-600: #4A5568;
+    --gray-800: #1A202C;
     --white: #FFFFFF;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
   }
 
   body {
@@ -38,146 +40,223 @@
     line-height: 1.7;
   }
 
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
+  /* Header */
+  .site-header {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+    padding: 0.9rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .site-header .org-name {
+    font-size: 11px;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+  }
+  .site-header .site-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.03em;
   }
 
-  /* Hero */
-  .hero {
-    background: var(--white);
-    border: 0.5px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem 2rem;
-    margin-bottom: 1.5rem;
+  /* Nav */
+  .site-nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+  }
+  .site-nav a {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .site-nav a:hover, .site-nav a.active {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+
+  /* Hero band */
+  .hero-band {
+    background: linear-gradient(135deg, var(--navy) 60%, #2255A0 100%);
+    color: white;
+    padding: 3rem 2rem 2.5rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-kicker {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+  .hero-band::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-band .kicker {
+    font-size: 12px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--teal-600);
-    margin-bottom: 0.6rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.75rem;
+    position: relative;
   }
-  .hero h1 {
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--gray-800);
-    line-height: 1.45;
-    margin-bottom: 0.9rem;
+  .hero-band h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    position: relative;
   }
-  .hero p {
+  .hero-band p {
     font-size: 14px;
-    color: var(--gray-400);
+    color: rgba(255,255,255,0.8);
     line-height: 1.8;
+    position: relative;
+  }
+
+  /* Page */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
   }
 
   /* Metrics */
   .metrics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .metric {
     background: var(--white);
-    border: 0.5px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    padding: 1.1rem 1rem 0.9rem;
+    padding: 1.2rem 1rem 1rem;
     text-align: center;
   }
   .metric-val {
-    font-size: 26px;
-    font-weight: 500;
-    color: var(--gray-800);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
     line-height: 1.1;
     margin-bottom: 4px;
   }
   .metric-unit { font-size: 13px; font-weight: 400; color: var(--gray-400); }
-  .metric-label { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+  .metric-label { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
 
-  /* Cards */
-  .card {
-    background: var(--white);
-    border: 0.5px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 1.4rem 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .card-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--gray-800);
-    margin-bottom: 1.1rem;
+  /* Section title */
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .card-title i { color: var(--teal-600); font-size: 18px; }
+  .section-title i { font-size: 18px; color: var(--red); }
+
+  /* Cards */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
 
   /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 0; }
   .step {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     align-items: flex-start;
-    padding: 0.8rem 0;
-    border-bottom: 0.5px solid var(--gray-100);
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--gray-100);
   }
   .step:last-child { border-bottom: none; padding-bottom: 0; }
   .step-num {
-    width: 28px; height: 28px;
+    width: 32px; height: 32px;
     border-radius: 50%;
-    background: var(--teal-50);
-    color: var(--teal-600);
-    font-size: 13px; font-weight: 500;
+    background: var(--navy);
+    color: white;
+    font-size: 14px; font-weight: 700;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
   }
-  .step strong { font-size: 14px; font-weight: 500; color: var(--gray-800); display: block; margin-bottom: 3px; }
-  .step p { font-size: 13px; color: var(--gray-400); line-height: 1.65; margin: 0; }
+  .step strong { font-size: 14px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 3px; }
+  .step p { font-size: 13px; color: var(--gray-600); line-height: 1.65; margin: 0; }
 
-  /* Clinic list */
-  .clinic-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  .clinic-col-right { border-left: 0.5px solid var(--gray-100); padding-left: 1rem; }
-  .col-label { font-size: 11px; font-weight: 500; color: var(--gray-400); margin-bottom: 0.4rem; }
-  .clinic-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.45rem 0;
-    border-bottom: 0.5px solid var(--gray-100);
-    font-size: 13px;
+  /* Timeline */
+  .tl-header {
+    display: flex; justify-content: space-between;
+    font-size: 11px; font-weight: 700;
+    color: var(--white);
+    background: var(--navy);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
   }
-  .clinic-row:last-child { border-bottom: none; }
-  .clinic-name { color: var(--gray-800); }
-  .clinic-date { color: var(--gray-400); font-size: 12px; white-space: nowrap; margin-left: 6px; }
-  .clinic-row.done { opacity: 0.5; }
+  .tl-wrap { position: relative; padding-left: 22px; border-left: 2px solid var(--gray-200); }
+  .tl-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0.42rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 13px; position: relative;
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    background: var(--gray-200); border: 2px solid var(--gray-400);
+    position: absolute; left: -27px;
+  }
+  .tl-dot.tl-active { background: var(--navy-light); border-color: var(--navy); }
+  .tl-dot.tl-upcoming-dot { background: var(--amber-50); border-color: var(--amber-800); }
+  .tl-name { flex: 1; color: var(--gray-800); }
+  .tl-date { color: var(--gray-400); font-size: 12px; white-space: nowrap; }
+  .tl-done .tl-name { color: var(--gray-400); }
+
+  .legend { display: flex; gap: 16px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .legend-item { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray-600); }
+  .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+
   .badge {
     display: inline-block; font-size: 10px; font-weight: 500;
     padding: 1px 7px; border-radius: 99px; margin-left: 5px;
     vertical-align: middle;
   }
-  .badge-done { background: var(--teal-50); color: var(--teal-600); }
+  .badge-done { background: var(--navy-light); color: var(--navy); }
   .badge-upcoming { background: var(--amber-50); color: var(--amber-800); }
   .clinic-note {
     font-size: 12px; color: var(--gray-400);
     margin-top: 0.75rem; padding-top: 0.75rem;
-    border-top: 0.5px solid var(--gray-100);
+    border-top: 1px solid var(--gray-100);
   }
 
   /* FAQ */
-  .faq-item { border-bottom: 0.5px solid var(--gray-100); }
+  .faq-item { border-bottom: 1px solid var(--gray-100); }
   .faq-item:last-child { border-bottom: none; }
   .faq-q {
     width: 100%; background: none; border: none;
     text-align: left; padding: 0.9rem 0;
     display: flex; justify-content: space-between; align-items: center;
     cursor: pointer;
-    font-size: 14px; font-weight: 500; color: var(--gray-800);
+    font-size: 14px; font-weight: 500; color: var(--navy);
     gap: 12px; font-family: inherit;
   }
-  .faq-q .faq-icon { flex-shrink: 0; transition: transform 0.22s; color: var(--gray-400); font-size: 18px; }
-  .faq-a { font-size: 13px; color: var(--gray-400); line-height: 1.75; padding-bottom: 0.9rem; display: none; }
+  .faq-q .faq-icon { flex-shrink: 0; transition: transform 0.22s; color: var(--red); font-size: 18px; }
+  .faq-a { font-size: 13px; color: var(--gray-600); line-height: 1.75; padding-bottom: 0.9rem; display: none; }
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-icon { transform: rotate(45deg); }
 
@@ -185,14 +264,15 @@
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
   .form-group { display: flex; flex-direction: column; gap: 5px; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-group label { font-size: 12px; font-weight: 500; color: var(--gray-400); }
+  .form-group label { font-size: 12px; font-weight: 700; color: var(--gray-600); }
+  .req { color: var(--red); margin-left: 2px; }
   .form-group input,
   .form-group select,
   .form-group textarea {
     font-size: 14px; font-family: inherit;
     padding: 9px 11px;
     border-radius: var(--radius-md);
-    border: 0.5px solid var(--gray-200);
+    border: 1px solid var(--gray-200);
     background: var(--white);
     color: var(--gray-800);
     width: 100%;
@@ -201,65 +281,87 @@
   }
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--teal-600); }
+  .form-group textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px var(--navy-light); }
   .form-group textarea { resize: vertical; min-height: 96px; }
   .form-group select {
     appearance: none; -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239B9990' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A95A3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 11px center;
     padding-right: 30px;
   }
   .submit-btn {
-    width: 100%; padding: 11px;
+    width: 100%; padding: 12px;
     border-radius: var(--radius-md);
-    background: var(--teal-600);
-    color: var(--teal-50);
-    font-size: 14px; font-weight: 500;
+    background: var(--navy);
+    color: white;
+    font-size: 14px; font-weight: 700;
     font-family: inherit;
     border: none; cursor: pointer;
     margin-top: 4px;
     transition: background 0.15s;
+    letter-spacing: 0.05em;
   }
-  .submit-btn:hover { background: var(--teal-800); }
+  .submit-btn:hover { background: var(--navy-dark); }
   .form-note { font-size: 12px; color: var(--gray-400); text-align: center; margin-top: 0.6rem; }
   .success-msg {
     display: none;
-    background: var(--teal-50);
+    background: var(--navy-light);
     border-radius: var(--radius-md);
     padding: 1rem;
     text-align: center;
     font-size: 14px;
-    color: var(--teal-600);
+    color: var(--navy);
     margin-top: 0.5rem;
   }
 
   /* Footer */
-  .footer {
+  .site-footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.6);
     text-align: center;
     font-size: 12px;
-    color: var(--gray-400);
-    margin-top: 2.5rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
   }
 
-  @media (max-width: 540px) {
-    .metrics { grid-template-columns: 1fr; }
-    .clinic-cols { grid-template-columns: 1fr; }
-    .clinic-col-right { border-left: none; padding-left: 0; margin-top: 1rem; }
+  @media (max-width: 600px) {
+    .site-nav { overflow-x: auto; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
     .form-grid { grid-template-columns: 1fr; }
     .form-group.full { grid-column: 1; }
+    .hero-band h1 { font-size: 20px; }
   }
 </style>
 </head>
 <body>
+
+<!-- Header -->
+<header class="site-header">
+  <div>
+    <div class="org-name">一般社団法人</div>
+    <div class="site-title">隆起会</div>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="site-nav">
+  <a href="#scheme" class="active">開業継承スキーム</a>
+  <a href="#results">実績</a>
+  <a href="#faq">よくある質問</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero-band">
+  <p class="kicker">一般社団法人 隆起会</p>
+  <h1>整形外科医のための<br>開業継承スキーム</h1>
+  <p>初期リスクを抑えながら、段階的にご自身のクリニックを持てる仕組みをご提供しています。<br>2010年の第1院開業から、13院の開業が決定しています。</p>
+</div>
+
 <div class="page">
 
-  <div class="hero">
-    <p class="hero-kicker">一般社団法人 隆起会</p>
-    <h1>整形外科医のための<br>開業継承スキーム</h1>
-    <p>初期リスクを抑えながら、段階的にご自身のクリニックを持てる仕組みをご提供しています。<br>2010年の第1院開業から、13院の開業が決定しています。</p>
-  </div>
-
+  <!-- Metrics -->
   <div class="metrics">
     <div class="metric">
       <div class="metric-val">2,400<span class="metric-unit">万円</span></div>
@@ -273,52 +375,61 @@
       <div class="metric-val">13<span class="metric-unit">院</span></div>
       <div class="metric-label">開業決定数</div>
     </div>
-  </div>
-
-  <div class="card">
-    <p class="card-title"><i class="ti ti-route" aria-hidden="true"></i>スキームの流れ</p>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div><strong>物件の選定</strong><p>先生のご自宅から30〜40分圏内を基準に、隆起会が適切な物件を選定します。</p></div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div><strong>クリニック開業・管理医師として勤務</strong><p>開業後は管理医師として年収2,400万円で勤務していただきます。</p></div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div><strong>開業5年後に譲渡</strong><p>開業から5年後に5,000万円でクリニックを先生へ譲渡します。経営が軌道に乗った状態でのオーナーシップ取得が可能です。</p></div>
+    <div class="metric">
+      <div class="metric-val">7<span class="metric-unit">院</span></div>
+      <div class="metric-label">継承実績</div>
     </div>
   </div>
 
-  <div class="card">
-    <p class="card-title"><i class="ti ti-building-hospital" aria-hidden="true"></i>開業・継承の実績</p>
-    <div class="clinic-cols">
-      <div>
-        <p class="col-label">開業済み・運営中</p>
-        <div class="clinic-row"><span class="clinic-name">おおたき整形外科</span><span class="clinic-date">2010.06</span></div>
-        <div class="clinic-row done"><span class="clinic-name">りゅうゆう会整形外科<span class="badge badge-done">継承済</span></span><span class="clinic-date">2013.05</span></div>
-        <div class="clinic-row done"><span class="clinic-name">整形外科りゅうゆう会<span class="badge badge-done">継承済</span></span><span class="clinic-date">2016.06</span></div>
-        <div class="clinic-row done"><span class="clinic-name">整形外科うるしたに<span class="badge badge-done">継承済</span></span><span class="clinic-date">2018.06</span></div>
-        <div class="clinic-row done"><span class="clinic-name">整形外科おがた<span class="badge badge-done">継承済</span></span><span class="clinic-date">2019.04</span></div>
-        <div class="clinic-row done"><span class="clinic-name">整形外科ますはら<span class="badge badge-done">継承済</span></span><span class="clinic-date">2019.06</span></div>
-        <div class="clinic-row done"><span class="clinic-name">整形外科なかむら<span class="badge badge-done">継承済</span></span><span class="clinic-date">2020.05</span></div>
+  <!-- Scheme -->
+  <div class="card" id="scheme">
+    <p class="section-title"><i class="ti ti-route" aria-hidden="true"></i>スキームの流れ</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><strong>物件の選定</strong><p>先生のご自宅から30〜40分圏内を基準に、隆起会が適切な物件を選定します。</p></div>
       </div>
-      <div class="clinic-col-right">
-        <p class="col-label">継承済み（7院）／開業決定</p>
-        <div class="clinic-row done"><span class="clinic-name">整形外科ふくやま<span class="badge badge-done">継承済</span></span><span class="clinic-date">2021.05</span></div>
-        <div class="clinic-row"><span class="clinic-name">整形外科おおつか</span><span class="clinic-date">2024.05</span></div>
-        <div class="clinic-row"><span class="clinic-name">つじもと整形外科</span><span class="clinic-date">2025.05</span></div>
-        <div class="clinic-row"><span class="clinic-name">もりもと整形外科</span><span class="clinic-date">2025.05</span></div>
-        <div class="clinic-row"><span class="clinic-name">寝屋川いずもと整形外科</span><span class="clinic-date">2026.05</span></div>
-        <div class="clinic-row"><span class="clinic-name">生野区（院名調整中）<span class="badge badge-upcoming">開業決定</span></span><span class="clinic-date">2027.05</span></div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><strong>クリニック開業・管理医師として勤務</strong><p>開業後は管理医師として年収2,400万円で勤務していただきます。</p></div>
       </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><strong>開業5年後に譲渡</strong><p>開業から5年後に5,000万円でクリニックを先生へ譲渡します。経営が軌道に乗った状態でのオーナーシップ取得が可能です。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="card" id="results">
+    <p class="section-title"><i class="ti ti-building-hospital" aria-hidden="true"></i>開業・継承の実績</p>
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot" style="background:var(--navy-light);border:2px solid var(--navy)"></span>運営中</span>
+      <span class="legend-item"><span class="legend-dot" style="background:var(--gray-200);border:2px solid var(--gray-400)"></span>継承済み</span>
+      <span class="legend-item"><span class="legend-dot" style="background:var(--amber-50);border:2px solid var(--amber-800)"></span>開業決定</span>
+    </div>
+    <div class="tl-header"><span>クリニック名</span><span>開業年月</span></div>
+    <div class="tl-wrap">
+      <div class="tl-row"><span class="tl-dot tl-active"></span><span class="tl-name">おおたき整形外科</span><span class="tl-date">2010.06</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">りゅうゆう会整形外科<span class="badge badge-done">継承済</span></span><span class="tl-date">2013.05</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科りゅうゆう会<span class="badge badge-done">継承済</span></span><span class="tl-date">2016.06</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科うるしたにクリニック<span class="badge badge-done">継承済</span></span><span class="tl-date">2018.06</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科おがたクリニック<span class="badge badge-done">継承済</span></span><span class="tl-date">2019.04</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科ますはらクリニック<span class="badge badge-done">継承済</span></span><span class="tl-date">2019.06</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科なかむらクリニック<span class="badge badge-done">継承済</span></span><span class="tl-date">2020.05</span></div>
+      <div class="tl-row tl-done"><span class="tl-dot"></span><span class="tl-name">整形外科ふくやまクリニック<span class="badge badge-done">継承済</span></span><span class="tl-date">2021.05</span></div>
+      <div class="tl-row"><span class="tl-dot tl-active"></span><span class="tl-name">整形外科おおつかクリニック</span><span class="tl-date">2024.05</span></div>
+      <div class="tl-row"><span class="tl-dot tl-active"></span><span class="tl-name">つじもと整形外科</span><span class="tl-date">2025.05</span></div>
+      <div class="tl-row"><span class="tl-dot tl-active"></span><span class="tl-name">もりもと整形外科</span><span class="tl-date">2025.05</span></div>
+      <div class="tl-row"><span class="tl-dot tl-active"></span><span class="tl-name">寝屋川いずもと整形外科</span><span class="tl-date">2026.05</span></div>
+      <div class="tl-row"><span class="tl-dot tl-upcoming-dot"></span><span class="tl-name">大阪市生野区（院名調整中）<span class="badge badge-upcoming">開業決定</span></span><span class="tl-date">2027.05</span></div>
     </div>
     <p class="clinic-note">継承済み7院はすべてスキーム通り5年後に先生へ譲渡しています。</p>
   </div>
 
-  <div class="card">
-    <p class="card-title"><i class="ti ti-help-circle" aria-hidden="true"></i>よくある質問</p>
+  <!-- FAQ -->
+  <div class="card" id="faq">
+    <p class="section-title"><i class="ti ti-help-circle" aria-hidden="true"></i>よくある質問</p>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">開業にあたって自己資金は必要ですか？<i class="ti ti-plus faq-icon" aria-hidden="true"></i></button>
       <div class="faq-a">開業資金は隆起会が負担します。先生ご自身の自己資金は原則不要です。まずはご相談ください。</div>
@@ -345,29 +456,30 @@
     </div>
   </div>
 
-  <div class="card">
-    <p class="card-title"><i class="ti ti-mail" aria-hidden="true"></i>お問い合わせ</p>
-    <div id="contact-form">
+  <!-- Contact -->
+  <div class="card" id="contact">
+    <p class="section-title"><i class="ti ti-mail" aria-hidden="true"></i>お問い合わせ</p>
+    <form id="contact-form" action="https://formspree.io/f/xredyvoo" method="POST">
       <div class="form-grid">
         <div class="form-group">
-          <label for="f-name">お名前</label>
-          <input type="text" id="f-name" placeholder="山田 太郎">
+          <label for="f-name">お名前<span class="req">*</span></label>
+          <input type="text" id="f-name" name="お名前" placeholder="山田 太郎" required>
         </div>
         <div class="form-group">
           <label for="f-kana">ふりがな</label>
-          <input type="text" id="f-kana" placeholder="やまだ たろう">
+          <input type="text" id="f-kana" name="ふりがな" placeholder="やまだ たろう">
         </div>
         <div class="form-group">
-          <label for="f-email">メールアドレス</label>
-          <input type="email" id="f-email" placeholder="example@email.com">
+          <label for="f-email">メールアドレス<span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" placeholder="example@email.com" required>
         </div>
         <div class="form-group">
           <label for="f-tel">電話番号</label>
-          <input type="tel" id="f-tel" placeholder="090-0000-0000">
+          <input type="tel" id="f-tel" name="電話番号" placeholder="090-0000-0000">
         </div>
         <div class="form-group full">
           <label for="f-pref">ご希望エリア（お住まいの都道府県）</label>
-          <select id="f-pref">
+          <select id="f-pref" name="ご希望エリア">
             <option value="">選択してください</option>
             <option>大阪府</option>
             <option>京都府</option>
@@ -380,20 +492,23 @@
         </div>
         <div class="form-group full">
           <label for="f-msg">ご質問・ご相談内容</label>
-          <textarea id="f-msg" placeholder="ご自由にご記入ください"></textarea>
+          <textarea id="f-msg" name="ご相談内容" placeholder="ご自由にご記入ください"></textarea>
         </div>
       </div>
-      <button class="submit-btn" onclick="submitForm()">送信する</button>
-      <p class="form-note">いただいた情報は開業相談以外の目的には使用しません。</p>
+      <button type="submit" class="submit-btn">送信する</button>
+      <p class="form-note">＊は必須項目です。いただいた情報は開業相談以外の目的には使用しません。</p>
       <div class="success-msg" id="success-msg">
         <i class="ti ti-circle-check" style="font-size:20px;vertical-align:-3px;margin-right:6px" aria-hidden="true"></i>
         お問い合わせを受け付けました。担当者よりご連絡いたします。
       </div>
-    </div>
+    </form>
   </div>
 
-  <p class="footer">© 一般社団法人 隆起会</p>
 </div>
+
+<footer class="site-footer">
+  © 一般社団法人 隆起会
+</footer>
 
 <script>
 function toggleFaq(btn) {
@@ -402,13 +517,37 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
-function submitForm() {
-  const name = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  if (!name || !email) { alert('お名前とメールアドレスは必須です。'); return; }
-  document.getElementById('contact-form').querySelector('.submit-btn').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-}
+
+// Smooth scroll for nav
+document.querySelectorAll('.site-nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = form.querySelector('.submit-btn');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+  const data = new FormData(form);
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+  if (response.ok) {
+    btn.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  } else {
+    btn.textContent = '送信する';
+    btn.disabled = false;
+    alert('送信に失敗しました。時間をおいて再度お試しください。');
+  }
+});
 </script>
 </body>
 </html>
