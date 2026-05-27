@@ -34,10 +34,10 @@
 
   body {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--gray-800);
     background: var(--gray-50);
-    line-height: 1.7;
+    line-height: 1.85;
   }
 
   /* Header */
@@ -50,12 +50,12 @@
     gap: 12px;
   }
   .site-header .org-name {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--gray-400);
     letter-spacing: 0.05em;
   }
   .site-header .site-title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--navy);
     letter-spacing: 0.03em;
@@ -70,8 +70,8 @@
   }
   .site-nav a {
     display: inline-block;
-    padding: 0.7rem 1.2rem;
-    font-size: 13px;
+    padding: 0.8rem 1.4rem;
+    font-size: 14px;
     color: rgba(255,255,255,0.85);
     text-decoration: none;
     border-bottom: 3px solid transparent;
@@ -97,7 +97,7 @@
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
   .hero-band .kicker {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
@@ -105,16 +105,16 @@
     position: relative;
   }
   .hero-band h1 {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 1rem;
     position: relative;
   }
   .hero-band p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.8;
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.9;
     position: relative;
   }
 
@@ -143,28 +143,28 @@
     text-align: center;
   }
   .metric-val {
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 700;
     color: var(--navy);
     line-height: 1.1;
     margin-bottom: 4px;
   }
-  .metric-unit { font-size: 13px; font-weight: 400; color: var(--gray-400); }
-  .metric-label { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
+  .metric-unit { font-size: 15px; font-weight: 400; color: var(--gray-400); }
+  .metric-label { font-size: 13px; color: var(--gray-600); margin-top: 6px; font-weight: 500; }
 
   /* Section title */
   .section-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--navy);
     padding-bottom: 0.6rem;
     border-bottom: 2px solid var(--navy);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.4rem;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  .section-title i { font-size: 18px; color: var(--red); }
+  .section-title i { font-size: 20px; color: var(--red); }
 
   /* Cards */
   .card {
@@ -195,8 +195,8 @@
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
   }
-  .step strong { font-size: 14px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 3px; }
-  .step p { font-size: 13px; color: var(--gray-600); line-height: 1.65; margin: 0; }
+  .step strong { font-size: 16px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 4px; }
+  .step p { font-size: 14px; color: var(--gray-600); line-height: 1.75; margin: 0; }
 
   /* Timeline */
   .tl-header {
@@ -211,9 +211,9 @@
   .tl-wrap { position: relative; padding-left: 22px; border-left: 2px solid var(--gray-200); }
   .tl-row {
     display: flex; align-items: center; gap: 10px;
-    padding: 0.42rem 0;
+    padding: 0.55rem 0;
     border-bottom: 1px solid var(--gray-100);
-    font-size: 13px; position: relative;
+    font-size: 14px; position: relative;
   }
   .tl-row:last-child { border-bottom: none; }
   .tl-dot {
@@ -249,14 +249,14 @@
   .faq-item:last-child { border-bottom: none; }
   .faq-q {
     width: 100%; background: none; border: none;
-    text-align: left; padding: 0.9rem 0;
+    text-align: left; padding: 1rem 0;
     display: flex; justify-content: space-between; align-items: center;
     cursor: pointer;
-    font-size: 14px; font-weight: 500; color: var(--navy);
+    font-size: 15px; font-weight: 700; color: var(--navy);
     gap: 12px; font-family: inherit;
   }
-  .faq-q .faq-icon { flex-shrink: 0; transition: transform 0.22s; color: var(--red); font-size: 18px; }
-  .faq-a { font-size: 13px; color: var(--gray-600); line-height: 1.75; padding-bottom: 0.9rem; display: none; }
+  .faq-q .faq-icon { flex-shrink: 0; transition: transform 0.22s; color: var(--red); font-size: 20px; }
+  .faq-a { font-size: 14px; color: var(--gray-600); line-height: 1.85; padding-bottom: 1rem; display: none; }
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-icon { transform: rotate(45deg); }
 
@@ -264,13 +264,13 @@
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
   .form-group { display: flex; flex-direction: column; gap: 5px; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-group label { font-size: 12px; font-weight: 700; color: var(--gray-600); }
+  .form-group label { font-size: 13px; font-weight: 700; color: var(--gray-600); }
   .req { color: var(--red); margin-left: 2px; }
   .form-group input,
   .form-group select,
   .form-group textarea {
-    font-size: 14px; font-family: inherit;
-    padding: 9px 11px;
+    font-size: 15px; font-family: inherit;
+    padding: 10px 12px;
     border-radius: var(--radius-md);
     border: 1px solid var(--gray-200);
     background: var(--white);
@@ -291,11 +291,11 @@
     padding-right: 30px;
   }
   .submit-btn {
-    width: 100%; padding: 12px;
+    width: 100%; padding: 14px;
     border-radius: var(--radius-md);
     background: var(--navy);
     color: white;
-    font-size: 14px; font-weight: 700;
+    font-size: 16px; font-weight: 700;
     font-family: inherit;
     border: none; cursor: pointer;
     margin-top: 4px;
@@ -303,7 +303,7 @@
     letter-spacing: 0.05em;
   }
   .submit-btn:hover { background: var(--navy-dark); }
-  .form-note { font-size: 12px; color: var(--gray-400); text-align: center; margin-top: 0.6rem; }
+  .form-note { font-size: 13px; color: var(--gray-400); text-align: center; margin-top: 0.7rem; }
   .success-msg {
     display: none;
     background: var(--navy-light);
@@ -330,7 +330,7 @@
     .metrics { grid-template-columns: repeat(2, 1fr); }
     .form-grid { grid-template-columns: 1fr; }
     .form-group.full { grid-column: 1; }
-    .hero-band h1 { font-size: 20px; }
+    .hero-band h1 { font-size: 24px; }
   }
 </style>
 </head>
